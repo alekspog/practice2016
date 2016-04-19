@@ -17,6 +17,9 @@ public class WeatherWebTest {
     @Rule
     public WebDriverRule webDriverRule = new WebDriverRule();
 
+    @Rule
+    public TPInformerRule tms = new TPInformerRule("alekspog");
+
     @Before
     public void initSteps() {
         defaultSteps = new DefaultSteps(webDriverRule.getDriver());
@@ -36,8 +39,16 @@ public class WeatherWebTest {
         defaultSteps.shouldSeeCityName(MOSCOW);
     }
 
+    @ru.yandex.qatools.allure.annotations.TestCaseId("NUM")
     @Test
     @Title("Должны видеть новый виджет")
+    public void shouldSeeNewWidget() {
+        defaultSteps.openMainPageWithCity(MOSCOW);
+        defaultSteps.addNewWidget(1);
+    }
+
+    @Test
+    @Title("Можно ввести название города в новом виджете")
     public void shouldSeeNewWidget() {
         defaultSteps.openMainPageWithCity(MOSCOW);
         defaultSteps.addNewWidget(1);
