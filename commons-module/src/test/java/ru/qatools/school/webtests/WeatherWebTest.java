@@ -7,6 +7,8 @@ import ru.qatools.school.pages.MainPage;
 import ru.qatools.school.rules.WebDriverRule;
 import ru.qatools.school.steps.websteps.DefaultSteps;
 import ru.yandex.qatools.allure.annotations.Title;
+import ru.qatools.school.tp.TPInformerRule;
+
 
 public class WeatherWebTest {
 
@@ -16,6 +18,10 @@ public class WeatherWebTest {
 
     @Rule
     public WebDriverRule webDriverRule = new WebDriverRule();
+
+    @Rule
+    public TPInformerRule tms = new TPInformerRule("alekspog");
+
 
     @Before
     public void initSteps() {
@@ -36,6 +42,7 @@ public class WeatherWebTest {
         defaultSteps.shouldSeeCityName(MOSCOW);
     }
 
+    @ru.yandex.qatools.allure.annotations.TestCaseId("1")
     @Test
     @Title("Должны видеть новый виджет")
     public void shouldSeeNewWidget() {
