@@ -17,7 +17,7 @@ public class DbClient {
     private static final String CONNECTION_STRING =
             System.getProperty("db.url", "jdbc:mysql://db.host.ru:3310/db_name");
     private static final String USER = System.getProperty("db.user", "user");
-    private static final String PASSWORD = System.getProperty("db.password", "password");;
+    private static final String PASSWORD = System.getProperty("db.password", "password");
 
     private Connection connection;
     private DSLContext create;
@@ -43,7 +43,7 @@ public class DbClient {
         try {
             connection.close();
         } catch (SQLException e) {
-            throw new DbClientException("Не удалось закрыть подключение к " + CONNECTION_STRING, e);
+            throw new DbClientException("Не удалось закрыть подключение к  " + CONNECTION_STRING, e);
         }
     }
 }
